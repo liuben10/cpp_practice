@@ -38,6 +38,17 @@ void test2() {
     cout << v1 << "\n";
 }
 
+void testPop() {
+    LinkedList v1 = LinkedList();
+    for(int i = 0; i < 10; i++) {
+        v1.push(i);
+    }
+    
+    printf("popped=%d\n", v1.pop());
+    printf("popped=%d\n", v1.pop());
+    printf("popped=%d\n", v1.pop());
+}
+
 int main(int argc, char** argv) {
     std::cout << "%SUITE_STARTING% LinkedListTest" << std::endl;
     std::cout << "%SUITE_STARTED%" << std::endl;
@@ -49,6 +60,9 @@ int main(int argc, char** argv) {
     std::cout << "%TEST_STARTED% test2 (LinkedListTest)" << std::endl;
     test2();
     std::cout << "%TEST_FINISHED% time=0 test2 (LinkedListTest)" << std::endl;
+    
+    cout << "test pop: " << "\n";
+    testPop();
     
     return (EXIT_SUCCESS);
 }
