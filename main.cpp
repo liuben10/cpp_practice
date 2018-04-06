@@ -13,7 +13,8 @@
 
 #include <cstdlib>
 #include <iostream>
-#include "LinkedList.h"
+#include "BinaryTree.h"
+#include "BinaryTreeBuilder.h"
 
 using namespace std;
 
@@ -21,13 +22,26 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    LinkedList v1 = LinkedList();
-    for(int i = 0; i < 10; i++) {
-        v1.push(i);
-    }
-    v1.reverse();
-
-    cout << v1 << "\n";
+//    auto testTree = (new BinaryTree::BinaryTreeBuilder(15))->build();
+//    shared_ptr<BinaryTree> testTree = 
+//        BinaryTreeBuilder(15)
+//            .withLeft(16)
+//            .withRight(17)
+//            .build();
+    auto testTree = BinaryTreeBuilder(15)
+        .withLeftB(
+            BinaryTreeBuilder(12)
+            .build()
+        )
+        .withRightB(
+            BinaryTreeBuilder(23)
+                .withLeft(18)
+                .withRight(25)
+                .build()
+        )
+        .build();
+    
+    cout << testTree->print() << "\n";
     return 0;
 }
 
